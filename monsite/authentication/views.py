@@ -5,11 +5,7 @@ from django.contrib import messages
 
 # Page d'accueil
 def index(request):
-    return render(request, 'authentication/index.html')
-
-# Page "À propos"
-def about(request):
-    return render(request, 'authentication/about.html')
+    return render(request, 'authentication/templates/index.html')
 
 # Page de connexion
 def login_view(request):
