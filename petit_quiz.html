@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz interactif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        .question {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .result {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Salon de coiffure: Quiz interac'tif</h1>
+
+<div id="quiz-container">
+    <div class="question">
+        <p>Quel est le mois que Victoire préfère ?</p>
+        <button class="answer" onclick="checkAnswer('Novembre')">Novembre</button>
+        <button class="answer" onclick="checkAnswer('Mai')">Mai</button>
+        <button class="answer" onclick="checkAnswer('Septembre (wtf)')">Septembre (wtf)</button>
+        <button class="answer" onclick="checkAnswer('Juin')">Juin</button>
+    </div>
+</div>
+
+<div class="result" id="result">
+    <p id="result-text"></p>
+    <button onclick="resetQuiz()">Recommencer</button>
+</div>
+
+<script>
+    let correctAnswer = "Juin";  // La bonne réponse est "Juin (wtf)"
+    let resultContainer = document.getElementById("result");
+    let resultText = document.getElementById("result-text");
+
+    function checkAnswer(answer) {
+        // Comparaison stricte des réponses
+        if (answer === correctAnswer) {
+            resultText.textContent = "YOUHOUUU ! Tu as trouvé la bonne réponse, bravo chacal.";
+        } else {
+            resultText.textContent = "Nobo, c'était 'Juin'.";
+        }
+        // Affichage des résultats
+        resultContainer.style.display = "block";
+        document.getElementById("quiz-container").style.display = "none";
+    }
+
+    function resetQuiz() {
+        // Réinitialisation du quiz
+        document.getElementById("quiz-container").style.display = "block";
+        resultContainer.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
