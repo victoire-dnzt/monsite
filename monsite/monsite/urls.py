@@ -19,6 +19,11 @@ from django.urls import path
 from django.urls import include
 
 urlpatterns = [
+    path('', lambda request: render(request, 'index.html'), name='home'),
     path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('login/', views.LoginView.as_view(), name='login'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('signup/', views.SignUpView.as_view(), name='signup'),
     path('', include('authentication.urls')),  # Inclusion des URLs de l’app
 ]
